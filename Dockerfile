@@ -76,6 +76,17 @@ RUN gem install \
 RUN rm -rf /usr/local/bundle/cache/* \
  && find /usr/local/bundle/ -name "*.o" | xargs rm
 FROM quay.io/madorn/fluentd:v1.12.2-debianamd64-1.1
+
+LABEL name="SumoLogic Kubernetes Fluentd" \
+      vendor="SumoLogic" \
+      version="1.0" \
+      release="1" \
+      summary="SumoLogic fluentd image" \
+      description="This will ...."
+
+### Required End User Agreements### 
+COPY licenses /licenses
+
 USER root
 RUN yum install -y jq \
  && gem install rdoc -v 6.3.1 \
